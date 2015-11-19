@@ -1,6 +1,8 @@
+# Proxy TCP Server
 import sys
 import socket
 import threading
+
 def server_loop(local_host,local_port,remote_host,remote_port,receive_first):
 
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -38,3 +40,22 @@ def server_loop(local_host,local_port,remote_host,remote_port,receive_first):
         # setup remote target
         remote_host = sys.argv[3]
         remote_port = int(sys.argv[4])
+
+        # this tells our proxy to connect and receive data
+        # before sending to the remote host
+        receive_first = sys.argv[5]
+
+        if "True" in receive_first:
+            receive_first = True
+        else:
+            receive_first = False
+
+        # now spin up out listening socket
+        server_loop((local_host,local_port,remote_host,remote_port,receive_first))
+
+    main()
+
+    def proxy_handler(client_socket, remote_host, remote_port, receive_first):
+        # Connect to the remote host
+
+
