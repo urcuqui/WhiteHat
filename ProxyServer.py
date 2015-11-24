@@ -57,5 +57,52 @@ def server_loop(local_host,local_port,remote_host,remote_port,receive_first):
 
     def proxy_handler(client_socket, remote_host, remote_port, receive_first):
         # Connect to the remote host
+        remote_socket = socket.socket(socket.AF_INET)
+
+        remote_socket.connect((remote_host,remote_port))
+
+        #receive data from the remote end if necessary
+        if receive_first:
+
+            remote_buffer = receive_from(remote_socket)
+            hexdump(remote_buffer)
+
+            # send it to our response handler
+            remote_buffer = response_handler(remote_buffer)
+
+            # if we have data to send to our local clinet,sent it:
+
+            if len(remote_buffer):
+                print("[<==] Sending %d bytes to localhost." % len(remote_buffer))
+                client_socket.send(remote_buffer)
+            # now lets loop and read from local, send to remote, send to local rinse, wash, repeat
+            while True:
+                # read from local host
+                local_buffer = receive_from(client_socket)
+
+                if(len(local_buffer)):
+                    print("[==>] Received %d bytes from localhost" %len(local_buffer))
+                    hexdump(local_buffer)
+
+                    # send it to our request handler
+                    local_buffer = request_handler(local_buffer)
+
+                    # send off the data to th remote host
+                    remote_socket.send(local_buffer)
+                    print("[==>] send to the remote")
+
+                # receive back the response
+                remote_buffer = receive_from(remote_buffer)
+                if len(remote_buffer):
+                    print("[<==] Received %d bytes from remote." %len(remote_buffer))
+                    hexdump(remote_buffer)
+
+                    # send to our response handler
+                    remote_buffer = response_handler(remote_buffer)
+
+
+
+
+
 
 
