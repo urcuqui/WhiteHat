@@ -2,6 +2,7 @@ import threading
 import paramiko
 import subprocess
 
+
 def ssh_command(ip, user, passwd, command):
     client = paramiko.SSHClient()
     #client.load_host_keys('/home/justin/.ssh/known_hosts')
@@ -20,4 +21,4 @@ def ssh_command(ip, user, passwd, command):
             ssh_session.send(str(e))
         client.close()
     return
-ssh_command('127.0.0.1', 'vagrant', 'vagrant','ClientConnected')
+ssh_command('localhost', 'justin', 'lovesthepython','ClientConnected')
