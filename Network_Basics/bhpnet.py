@@ -4,6 +4,7 @@ import getopt
 import threading
 import subprocess
 
+#This class has a some functions of Netcat, a utility knife of networking
 
 listen = False
 command = False
@@ -19,17 +20,17 @@ def usage():
     print ("BHP Net Tool")
     print()
     print ("Usage: bhpnet.py -t target_host -p port")
-    print "-l --listen"
-    print "-e --execute=file_to_run"
-    print "-c --command"
-    print "-u --upload=destination"
+    print ("-l --listen")
+    print ("-e --execute=file_to_run")
+    print ("-c --command")
+    print ("-u --upload=destination")
     print
     print
-    print "Examples:"
-    print "bhpnet.py -t 192.168.0.1 -p 5555 -l -c"
-    print "bhpnet.py -t 192.168.0.1 -p 5555 -l -u=c:\\target.exe"
-    print "bhpnet.py -t 192.168.0.1 -p 5555 -l -e=\"cat /etc/passwd\""
-    print "echo 'ABCDEFGHI' | ./bhpnet.py -t 192.168.11.12 -p 135"
+    print ("Examples:")
+    print ("bhpnet.py -t 192.168.0.1 -p 5555 -l -c")
+    print ("bhpnet.py -t 192.168.0.1 -p 5555 -l -u=c:\\target.exe")
+    print ("bhpnet.py -t 192.168.0.1 -p 5555 -l -e=\"cat /etc/passwd\"")
+    print ("echo 'ABCDEFGHI' | ./bhpnet.py -t 192.168.11.12 -p 135")
     sys.exit(0)
 
 
@@ -45,11 +46,11 @@ def main():
         usage()
 
     try:
-        opts, args = getopt.getopt(sys.argv[1:],"hle:t:p:cu", ["help", "listen", "execute", "target", "port",
-                                                               "command", "upload"])
+        opts, args = getopt.getopt(sys.argv[1:], "hle:t:p:cu", ["help", "listen", "execute", "target", "port",
+                                                                "command", "upload"])
 
     except getopt.GetoptError as err:
-        print str(err)
+        print (str(err))
         usage()
 
     for o, a in opts:
@@ -72,6 +73,7 @@ def main():
             assert False, "Unhandled Option"
 
     if not listen and len(target) and port > 0:
+        # The buffer is reading from the command line
         buffer = sys.stdin.read()
 
         client_sender(buffer)
@@ -92,17 +94,21 @@ def client_sender(buffer):
 
             while recv_len:
                 data = client.recv(4096)
-                rcv_len = len(data)
+                recv_len = len(data)
                 response += data
 
                 if recv_len < 4096:
                     break
-            print response,
+            print (response,)
+
+            # wait for more input
             buffer = raw_input("")
             buffer += "\n"
             client.send(buffer)
+
     except:
-        print "[*] Exception! Existing."
+
+        print ("[*] Exception! Existing.")
         client.close()
 
 
@@ -116,7 +122,7 @@ def server_loop():
 
     while True:
         client_socket, addr = server.accept()
-        client_thread = threading.Thread(target=client_handler, args =(client_socket,))
+        client_thread = threading.Thread(target=client_handler, args=(client_socket,))
         client_thread.start()
 
 
@@ -166,7 +172,4 @@ def client_handler(client_socket):
             response = run_command(cmd_buffer)
             client_socket.send(response)
 
-
 main()
-
-
