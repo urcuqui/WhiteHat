@@ -5,6 +5,7 @@ import threading
 import subprocess
 
 #This class has a some functions of Netcat, a utility knife of networking
+#Python 3.4
 
 listen = False
 command = False
@@ -91,24 +92,22 @@ def client_sender(buffer):
         while True:
             recv_len = 1
             response = ""
-
             while recv_len:
                 data = client.recv(4096)
                 recv_len = len(data)
-                response += data
-
+                response += (data).decode('utf-8')
                 if recv_len < 4096:
                     break
-            print (response,)
+            print ((response),)
 
             # wait for more input
-            buffer = raw_input("")
+            buffer = input("")
             buffer += "\n"
-            client.send(buffer)
+            client.send((buffer).encode('utf-8'))
 
     except:
 
-        print ("[*] Exception! Existing.")
+        print("[*] Exception! Existing.")
         client.close()
 
 
@@ -165,10 +164,10 @@ def client_handler(client_socket):
 
     if command:
         while True:
-            client_socket.send("<BHP:#>")
+            client_socket.send(("<BHP:#>").encode('utf-8'))
             cmd_buffer = ""
             while "\n" not in cmd_buffer:
-                cmd_buffer += client_socket.recv(1024)
+                cmd_buffer += (client_socket.recv(1024)).decode('utf-8')
             response = run_command(cmd_buffer)
             client_socket.send(response)
 
