@@ -19,7 +19,7 @@ sniffer.setsockopt(socket.IPPROTO_IP, socket.IP_HDRINCL, 1)
 if os.name == "nt":
     sniffer.ioctl(socket.SIO_RCVALL, socket.RCVALL_ON)
 # read in a single packet
-print sniffer.recvfrom(65565)
+print (sniffer.recvfrom(65565))
 
 # if we're using Windows, turn off promiscuous mode
 if os.name == "nt":
