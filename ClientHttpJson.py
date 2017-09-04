@@ -6,7 +6,7 @@ import socket
 
 import requests
 
-req = requests.post('http://127.0.0.1:8080/measurement', json={"measurement" :
+req = requests.post('', json={"measurement" :
                                                                               {"id" : " 01",
  "initial_date" : "2013-02-21, 13:10:20",
  "final_date": "2013-02-22, 13:10:20 ",
