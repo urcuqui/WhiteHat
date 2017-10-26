@@ -1,17 +1,5 @@
-# WhiteHat
-Information about my experiences in Ethical Hacking ... 
+# Python 2.7+ WhiteHat 
 
-```
- ___   ___    __   ____  ___    ___    __    __    
-|   | /  |   |  |  |  |  |  |  /  |   |  |  |  |       
-|   |/  /    |  |  |  |  |  | /  /    |  |  |  |      
-|      /     |  |  |  |  |      |      \  \_/  /  
-|  |\  \     |  '--'  |  |  |\  \        \   /        
-| _| `.__\   |________|  | _| `.__\      |___|
-  
-```
+This repository has some tools in Python 2.7 to security analysis. This is divided in the next sections:
++ Network Basics, it has some tools to create web servers, some of them have ports listening in UDP and TCP
 
-
-
-Some examples are from 
-+ Black Hat Python Book
