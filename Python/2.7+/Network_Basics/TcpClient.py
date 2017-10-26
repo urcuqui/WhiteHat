@@ -1,7 +1,11 @@
+#Python 2.7
+#Christian Urcuqui
 import socket
 
 target_host = "www.google.com"
 target_port = 80
+#target_host = "0.0.0.0"
+#target_port = 9999
 
 #https://docs.python.org/2/library/socket.html
 #socket.AF_UNIX
