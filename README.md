@@ -13,5 +13,10 @@ Information about my experiences in Ethical Hacking ...
 
 
 
-Some examples are from 
-+ Black Hat Python Book
+Bibliography 
++ Seitz, Justin. Black Hat Python: Python Programming for Hackers and Pentesters. No Starch Press, 2014.
++ Ramos, Antonio., Barberto, C. Marugan, D., & Gonzáles I. hacking con ingeniería social técnicas para hackear humanos
++ Hadnagy, C. (2014). Unmasking the social engineer: The human element of security. John Wiley & Sons.
++ Ramos, Antonio., Barberto, M. Rubén., G. Ángel., & Gonzáles I. Hacking y seguridad de páginas web
+
+
