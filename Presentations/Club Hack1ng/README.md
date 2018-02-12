@@ -1,6 +1,6 @@
 # Welcome to the Hack1ng Club at Universidad Icesi
 
-![alt text](https://www.facebook.com/clubdehack1nghardware/photos/a.1168673986517171.1073741825.1168673259850577/1168674003183836/?type=1&theater "Logo")
+![alt text](http://www.icesi.edu.co/unicesi/images/unicesi/1.1.jpg "Logo")
 
 In this repository you will find information about our experiences in cibersecurity, so, it is divided by:
 + Workshops
