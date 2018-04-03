@@ -1,7 +1,7 @@
 # Android Security Research
 
 This repository is divided by the next sections:
-+ Presentations, in this folder I share some presentations whose I did in some conferences
++ Presentations, in this folder I share some presentations whose I presented in some conferences
 + Scripts, in this folder you can find some scripts used in my research productions
 + Articles, this folder has my open articles
 
