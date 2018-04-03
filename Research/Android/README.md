@@ -7,13 +7,13 @@ This repository is divided by the next sections:
 
 These are the URL where you can find the pdf resource to read the articles
 
-+Navarro, A., Sebastian, L., Urcuqui, C., Fuentes, M., & Gomez, J. (2014, June). Analisis y caracterizacion de frameworks para deteccion de aplicaciones maliciosas en android. In XIV Jornada Internacional de Seguridad Informatica ACIS 2014.
++ Navarro, A., Sebastian, L., Urcuqui, C., Fuentes, M., & Gomez, J. (2014, June). Analisis y caracterizacion de frameworks para deteccion de aplicaciones maliciosas en android. In XIV Jornada Internacional de Seguridad Informatica ACIS 2014.
 
-+Londono, S., Urcuqui, C., Amaya, M. F., Gomez, J., & Cadavid, A. N. (2015). SafeCandy: System for security, analysis and validation in Android. Sistemas y Telematica, 13(35), 89-102.
++ Londono, S., Urcuqui, C., Amaya, M. F., Gomez, J., & Cadavid, A. N. (2015). SafeCandy: System for security, analysis and validation in Android. Sistemas y Telematica, 13(35), 89-102.
 
-+Urcuqui, C., & Navarro, A. N. (2016, April). Machine learning classifiers for android malware analysis. In 2016 IEEE Colombian Conference on Communications and Computing (COLCOM) (pp. 1-6). IEEE.
++ Urcuqui, C., & Navarro, A. N. (2016, April). Machine learning classifiers for android malware analysis. In 2016 IEEE Colombian Conference on Communications and Computing (COLCOM) (pp. 1-6). IEEE.
 
-+Urcuqui, C., & Cadavid, A. N. (2016). Framework for malware analysis in Android. Sistemas & Telematica, 14(37), 45-56.
++ Urcuqui, C., & Cadavid, A. N. (2016). Framework for malware analysis in Android. Sistemas & Telematica, 14(37), 45-56.
 
 
 ```
