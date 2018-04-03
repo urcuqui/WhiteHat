@@ -5,6 +5,14 @@ This repository is divided by the next sections:
 + Scripts, in this folder you can find some scripts used in my research productions
 + Articles, this folder has my open articles
 
+Datasets
+
+These are URLs where you can find the datasets whose I used during my research 
+
++ https://www.kaggle.com/xwolf12/datasetandroidpermissions
++ https://ieee-dataport.org/documents/dataset-malwarebeningn-permissions-android
+
+
 These are the URL where you can find the pdf resource to read the articles
 
 + Navarro, A., Sebastian, L., Urcuqui, C., Fuentes, M., & Gomez, J. (2014, June). Analisis y caracterizacion de frameworks para deteccion de aplicaciones maliciosas en android. In XIV Jornada Internacional de Seguridad Informatica ACIS 2014.
