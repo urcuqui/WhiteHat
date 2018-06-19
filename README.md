@@ -12,6 +12,7 @@ Bibliography
 + Ramos, Antonio., Barberto, C. Marugan, D., & Gonzáles I. hacking con ingeniería social técnicas para hackear humanos
 + Hadnagy, C. (2014). Unmasking the social engineer: The human element of security. John Wiley & Sons.
 + Ramos, Antonio., Barberto, M. Rubén., G. Ángel., & Gonzáles I. Hacking y seguridad de páginas web
++ Lutz, M. (2013). Learning Python: Powerful Object-Oriented Programming. " O'Reilly Media, Inc.".
 
 
 
