@@ -26,7 +26,7 @@ Telnet
 ```
 nc IP port
 ```
-Some HTTP requests have special data, and they depend of the server technology, in some cases the information gotten from an Apache server is different from an Microsoft IIS.
+Some HTTP requests have special data, and they depend of the server technology, in some cases the information get from an Apache server is different from an Microsoft IIS.
 
 Sometimes, Cookies have information about the technology, and they are defined in their identification variables, such as:
 * ASPSESSIONIDFBEDUWXUIB=CEUIL... that is for a ASP solution
