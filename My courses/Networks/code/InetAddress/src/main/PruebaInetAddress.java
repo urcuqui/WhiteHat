@@ -17,7 +17,8 @@ public class PruebaInetAddress {
 			
 			// get the IP address from the web servers of Google 
 			//InetAddress arrayAd[] = InetAddress.getAllByName("www.yahoo.com");
-			InetAddress arrayAd[] = InetAddress.getAllByName("www.cali.gov.co");
+			// InetAddress arrayAd[] = InetAddress.getAllByName("www.cali.gov.co");
+			InetAddress arrayAd[] = InetAddress.getAllByName("whois.internic.net");
 			for(int i=0; i<arrayAd.length; i++)
 			{
 				System.out.println(arrayAd[i]);

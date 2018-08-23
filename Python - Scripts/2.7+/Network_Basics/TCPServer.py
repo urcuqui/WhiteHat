@@ -2,11 +2,13 @@
 #Christian Urcuqui
 import socket
 import threading
+import datetime
 # --- Example of a server that is listening with a TCP protocol ---
 # https://docs.python.org/2/library/socket.html#socket.socket.recv
 # https://docs.python.org/2/library/threading.html
 bind_ip = '0.0.0.0'
-bind_port = 9999
+bind_port = 13
+
 
 server = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 #socket.bind(address)
@@ -23,8 +25,8 @@ def handle_client(client_socket):
     request = client_socket.recv(4026)
 
     print "[*] Received: %s" % request
-
-    client_socket.send("ACK!")
+    now = datetime.datetime.now()
+    client_socket.send(now)
 
     client_socket.close()
 
