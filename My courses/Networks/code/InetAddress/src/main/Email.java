@@ -5,7 +5,7 @@ public class Email {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		
 		//SMTP service from gmail smtp-relay.gmail.com
 		// to use gmail is necessary to use security mechanisms in order to log with an email account 
 		try {
