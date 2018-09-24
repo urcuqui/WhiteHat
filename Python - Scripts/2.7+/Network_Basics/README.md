@@ -18,3 +18,15 @@ These are the python files in this directory:
 + UDP Server, it is a code to create a web server with TCP socket. 
 + Proxy, it is a code to create a proxy server in python in order to capture some packets.
 + bhpnet, it is a Netcat tool in Python. In the same file it has both client and server environment in TCP.
+
+
+## Examples with the scripts
+
+## Netcat with Python
+
+We can use the script bhpnet in order to execute commands like the netcat tool, for example use the
+next command with the python file
+
+```
+echo -ne "GET / HTTP/1.1\r\nHost: www.google.com\r\n\r\n" | bhpnet.py -t www.google.com -p 80
+```
