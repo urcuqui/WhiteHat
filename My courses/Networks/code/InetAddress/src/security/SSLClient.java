@@ -5,10 +5,13 @@ import java.util.Scanner;
 
 import javax.net.ssl.SSLSocketFactory;
 public class SSLClient {
-
+public static final String TRUSTTORE_LOCATION = "C:/Program Files (x86)/Java/jre1.8.0_181/bin/keystore.jks";
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.out.println("SSLClientSocket Started");
+		// this an argument like -Djavax.net.ssl.trustStore="keystore"....
+		System.setProperty("javax.net.ssl.trustStore", TRUSTTORE_LOCATION);
 		SSLSocketFactory sf = (SSLSocketFactory) SSLSocketFactory.getDefault();
 		
 		Socket socket;
