@@ -17,7 +17,7 @@ upload = False
 execute = ""
 target = ""
 upload_destination = ""
-port = 0
+port = 9999
 
 
 def run_command(command):
@@ -36,7 +36,7 @@ def run_command(command):
     return output
 
 
-# this handles incoming client connections
+# this handles incoming client connections, specifically, it allows us to do file uploads, command execution, and our shell
 def client_handler(client_socket):
     global upload
     global execute
@@ -101,7 +101,7 @@ def server_loop():
         client_thread = threading.Thread(target=client_handler, args=(client_socket,))
         client_thread.start()
 
-
+# this is the thread made by each client connected to the server 
 def client_sender(buffer):
     # TCP
     client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

@@ -30,3 +30,16 @@ next command with the python file
 ```
 echo -ne "GET / HTTP/1.1\r\nHost: www.google.com\r\n\r\n" | bhpnet.py -t www.google.com -p 80
 ```
+This example has both client and server approaches, specifically, we can execute the server mode with the next command
+```
+bhpnet.py -l -p 9999 -c
+```
+In the last command we specified that the server is listening in the 9999 port and localhost, and it is receiving commands.
+Suppose that the server is in another computer (maybe your target) now the idea is to communicate with it through a client,
+the next command allows us to make this channel to send commands.
+```
+bhpnet.py -t localhost -p 9999
+```
+In order to get the command control we need to use <CTRL-D>.
+
+
