@@ -10,7 +10,7 @@ import zipfile
 
 zFile = zipfile.ZipFile("evil.zip")
 try:
-    zFile.extractall(pwd=b"secret")
+    zFile.extractall(pwd="secret".encode())
 except Exception as e:
     print(e)
 print("the files were extracted from the file zip ")
