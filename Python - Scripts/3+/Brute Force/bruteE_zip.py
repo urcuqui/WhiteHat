@@ -10,20 +10,20 @@ import zipfile
 import threading
 import optparse
 
-global notFind
+notFind = True
 
 def extractFile(zFile, password):
     try:
         zFile.extractall(pwd=password)
         print("[+] Password = " + str(password) + "\n")
+        global notFind
         notFind = False
     except:
-        notFind = True
         pass
 
 
 def main():
-    notFind = True
+    global notFind
     parser = optparse.OptionParser("usage%prog -f <zipfile> -d <dictionary>")
     parser.add_option("-f", dest="zname", type="string", help="specify zip file")
     parser.add_option("-d", dest="dname", type="string", help="specify dictionary file")
@@ -33,7 +33,7 @@ def main():
         exit(0)
     else:
         zname = options.zname
-        dname =  options.dname
+        dname = options.dname
     zFile = zipfile.ZipFile(zname)
     passFile = open(dname)
     for line in passFile.readlines():
