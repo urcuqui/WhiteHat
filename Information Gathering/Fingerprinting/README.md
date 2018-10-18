@@ -16,6 +16,17 @@ This is a process to get information about a target. Currently, we can access to
 ## Tools and Overview ##
 
 
+
+### Tools
+
+#### Documentation
+
+Nowadays we can use some documentation tools that allow us to collect and use the data to build reports. Some of them are:
+
++ BasKet, http://basket.kde.org
++ Dragis, http://dradisframework.org
+
+#### Network information
 During this process is important to get insights about the technological infrastructure, we can get an idea through the data in the communication network (packet analysis received in the web browser). Moreover, we can use other tools to make HTTP request, for example:
 
 Netcat
@@ -38,3 +49,12 @@ Sometimes, Cookies have information about the technology, and they are defined i
 * Nmap
 * WhatWeb
 * BlindElephant
+
+
+## Examples of information gathering
+
++ https://www.social-engineer.org/wiki/archives/BlogPosts/LookWhatIFound.html
+
+# References
+
++ Hadnagy, C. (2010). Social engineering: The art of human hacking. John Wiley & Sons.
