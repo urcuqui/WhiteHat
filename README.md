@@ -3,7 +3,9 @@ Information about my experiences in Ethical Hacking ...
 
 This repository is divided by the next sections:
 + Python Scripts is the folder that has some code to hacks system by Python 2+ and Python 3+.
-+ Courses, this folder has presentations, code, workshops about my courses in cybersecurity.
++ Courses, this folder has presentations, code, workshops about my courses, some of them are:
+    + Cybersecurity club
+    + Networks and lab
 + Research, this folder has some open source projects, articles, and presentations about my cybersecurity research.
 
 
