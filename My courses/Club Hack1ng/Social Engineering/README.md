@@ -2,6 +2,8 @@
 
 These are the list of social engineering tools used in the presentations.
 
+## Information Gathering
+
 How to get information about the target, some tools are:
 + Google Dorks
 + Foca
@@ -10,13 +12,21 @@ How to get information about the target, some tools are:
 + DMITRY 
 + fping
 
-IP Spoofing
+If you want to copy the files of some website we can use these tools:
++ httrack. With the next command we can download some files and save them in a directory
+           
+```
+httrack url -O path
+```
+
+
+## IP Spoofing
 + hping3
 
-ARP and DNS Spoofing
+## ARP and DNS Spoofing
 + Ettercap
 
-NFC hacking 
+## NFC hacking 
 + nfc-list
 + mfoc
 + nfc-mfclassic
