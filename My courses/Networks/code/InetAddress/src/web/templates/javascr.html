@@ -1,0 +1,27 @@
+<html>
+<head>
+<script language="javascript" type="text/javascript">
+function respuesta(form_prueba) 
+{
+	var persona = form_prueba.nombre.value;
+	var anios = eval(form_prueba.edad.value) + 1;
+	document.open();
+	document.writeln("<html> <body>");
+	document.writeln("Hola " + persona + ".<br>");
+	document.writeln("Predicción: el siguiente año tendrá " + anios + ".");
+	document.writeln("</body> </html>");
+	document.close();
+	//alert("hablamelo");
+}
+</script>
+</head>
+<body>
+	<form>
+		Por favor introduzca su nombre: <input type="text" name="nombre">
+		<p>
+		Por favor introduzca su edad: <input type="number" name="edad"> </p>
+		<p>
+		<input type="button" value="submit" onclick="respuesta(this.form)">
+	</form>
+</body>
+</html>
