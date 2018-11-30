@@ -1,27 +1,36 @@
+<!DOCTYPE html>
 <html>
 <head>
-<script language="javascript" type="text/javascript">
-function respuesta(form_prueba) 
-{
-	var persona = form_prueba.nombre.value;
-	var anios = eval(form_prueba.edad.value) + 1;
-	document.open();
-	document.writeln("<html> <body>");
-	document.writeln("Hola " + persona + ".<br>");
-	document.writeln("Predicción: el siguiente año tendrá " + anios + ".");
-	document.writeln("</body> </html>");
-	document.close();
-	//alert("hablamelo");
-}
-</script>
+<style>
+	body 
+	{
+	background-image: url("https://estaticos.serpadres.es/media/cache/760x570_thumb/uploads/images/song/583da1a75cafe81e638b45df/reno.jpg");
+	
+    height: 100%; 
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+	}
+	
+	
+	
+</style>
+	<title> Merry Christmas </title>
 </head>
 <body>
-	<form>
-		Por favor introduzca su nombre: <input type="text" name="nombre">
-		<p>
-		Por favor introduzca su edad: <input type="number" name="edad"> </p>
-		<p>
-		<input type="button" value="submit" onclick="respuesta(this.form)">
+	<form method="GET">
+		<center>
+			<p> <b>
+				What do you want for Christmas? 
+				</b>
+			</p>
+			<input type="text" name="gift">
+			
+			<br>
+			<input type="submit" value="submit">
+		
+		</center>		
 	</form>
 </body>
 </html>
