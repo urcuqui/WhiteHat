@@ -18,25 +18,23 @@ windows = False
 def settings():
 
     if os.name == 'nt':
-        print("ok")
         windows = True
     else:
-        print("nada")
         windows = False
 
 
 def main():
     settings()
-    #nic_available()
+    nic_available()
 
 
 def nic_available():
-    show_interfaces()
+    if windows:
+        IFACES.show(True)
+    else:
+        for e in netifaces.interfaces():
+            print(e)
 
-
-    #for interface in get_windows_if_list():
-    #   print(interface)
 
 if __name__ == "__main__":
    main()
-   #IFACES.show(True)
