@@ -10,7 +10,9 @@ Python version: 3+
 import netifaces
 from scapy.all import *
 import os
-import pyshark
+import pyshark  # wrapper
+import subprocess
+import re
 
 # global variables
 windows = False
@@ -39,20 +41,27 @@ def nic_treatment():
     print(" -------- ")
     print("")
     interface = input("Write the name of the network interface to use:\n")
-    time = input("Write the time in seconds:\n")
-    sniffer(interface, time)
+    capture_time = input("Write the time in seconds:\n")
+    name_packet = input("Write the name of the packet file to save:\n")
+    sniffer(interface, capture_time, name_packet)
 
 
-def sniffer(interface, timeout):
+def sniffer(interface, timeout, name_packet):
     global windows
     if windows:
         print("sniffing...")
         sniff(iface=interface, prn=pkt_callback, store=0)
     else:
+        # Linux -> Tcpdump
         print("sniffing...")
-        capture = pyshark.LiveCapture(interface=interface)
-        capture.sniff(timeout=int(timeout))
-        print(capture)
+        cmd = "tcpdump -G " + timeout + " -W 1 -w " + \
+              name_packet + ".pcap -i " + interface
+        subprocess.call(cmd, shell=True)
+
+
+        #capture = pyshark.LiveCapture(interface=interface)
+        #capture.sniff(timeout=int(timeout))
+        #print(capture)
 
 
 def pkt_callback(pkt):
