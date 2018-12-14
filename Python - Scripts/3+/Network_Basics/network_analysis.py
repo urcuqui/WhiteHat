@@ -12,8 +12,12 @@ def main():
 
 
 def nic_available():
-    for interface in get_windows_if_list():
-        print(interface)
+    show_interfaces()
+
+
+    #for interface in get_windows_if_list():
+    #   print(interface)
 
 if __name__ == "__main__":
-    main()
+   #main()
+   show_interfaces()
