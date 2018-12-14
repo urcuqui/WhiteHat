@@ -37,15 +37,27 @@ def nic_treatment():
         for e in netifaces.interfaces():
             print(e)
     print(" -------- ")
-    text = input("Write the name of the network interface to use:\n")
-    sniffer(text)
+    print("")
+    interface = input("Write the name of the network interface to use:\n")
+    time = input("Write the time in seconds:\n")
+    sniffer(interface, time)
 
 
-def sniffer(type_os):
-    capture = pyshark.LiveCapture(interface='eth0')
-    capture.sniff(timeout=50)
-    capture
+def sniffer(interface, timeout):
+    global windows
+    if windows:
+        print("nada")
+        sniff(iface="<My Interface>", prn=pkt_callback, filter="tcp", store=0)
 
+    else:
+        print("sniffing...")
+        capture = pyshark.LiveCapture(interface=interface)
+        capture.sniff(timeout=int(timeout))
+        print(capture)
+
+
+def pkt_callback(pkt):
+            pkt.show() # debug statement
 
 
 if __name__ == "__main__":
