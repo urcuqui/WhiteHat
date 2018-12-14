@@ -13,8 +13,6 @@ import os
 
 
 def settings():
-    # global variables
-    windows = False
 
     if os.name == 'nt':
         windows = True
@@ -23,6 +21,9 @@ def settings():
 
 
 def main():
+    # global variables
+    windows = False
+
     settings()
     nic_available()
 
