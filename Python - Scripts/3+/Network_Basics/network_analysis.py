@@ -11,9 +11,12 @@ import netifaces
 from scapy.all import *
 import os
 
+# global variables
+windows = False
+
 
 def settings():
-
+    global windows
     if os.name == 'nt':
         windows = True
     else:
@@ -21,14 +24,12 @@ def settings():
 
 
 def main():
-    # global variables
-    windows = False
-
     settings()
     nic_available()
 
 
 def nic_available():
+    global windows
     if windows:
         IFACES.show(True)
     else:
