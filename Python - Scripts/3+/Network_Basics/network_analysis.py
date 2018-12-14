@@ -11,11 +11,10 @@ import netifaces
 from scapy.all import *
 import os
 
-# global variables
-windows = False
-
 
 def settings():
+    # global variables
+    windows = False
 
     if os.name == 'nt':
         windows = True
