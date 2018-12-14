@@ -46,9 +46,8 @@ def nic_treatment():
 def sniffer(interface, timeout):
     global windows
     if windows:
-        print("nada")
-        sniff(iface="<My Interface>", prn=pkt_callback, filter="tcp", store=0)
-
+        print("sniffing...")
+        sniff(iface=interface, prn=pkt_callback, store=0)
     else:
         print("sniffing...")
         capture = pyshark.LiveCapture(interface=interface)
