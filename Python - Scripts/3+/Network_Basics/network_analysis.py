@@ -15,10 +15,14 @@ import subprocess
 
 # global variables
 windows = False
-processed_data =  dict()
+processed_data = []
 
 
 def settings():
+    """
+    the next method allows us to define the settings of the program
+    according of the operating the system to analyze
+    """
     global windows
     if os.name == 'nt':
         windows = True
@@ -27,10 +31,20 @@ def settings():
 
 
 def capture():
+    """
+    Capture allows us to define the parameters (nic, time and package name) in order to do the capture process
+    """
     nic_treatment()
+    interface = input("Write the name of the network interface to use:\n")
+    capture_time = input("Write the time in seconds:\n")
+    name_packet = input("Write the name of the packet file to save:\n")
+    sniffer(interface, capture_time, name_packet)
 
 
 def feature_generator():
+    """
+    This method is dedicated to get all the features from the pcap and makes the dataset
+    """
     pcap_path = input("Write the path of the pcap to process")
     dataset_path = input("Write the path of the dataset to save")
     dataset = open(dataset_path, "w+")
@@ -42,30 +56,30 @@ def feature_generator():
     print("################### Writing the data #############################")
     pkts = []
     global processed_data
+    id = 0
     for pkt in capture:
         try:
+            id += 1
             protocol = pkt.transport_layer
             src_addr = pkt.ip.src
             src_port = pkt[pkt.transport_layer].srcport
             dst_addr = pkt.ip.dst
             dst_port = pkt[pkt.transport_layer].dstport
 
-            if protocol in processed_data:
-               print("ok")
+            flow = "protocol:" + str(protocol) + ", ip_src:" + \
+                   str(src_addr) + ", src_port: " + str(src_port) + ", dst_addr:" + \
+                   str(dst_addr) + ", dstport:" + str(dst_port)
+
+            if flow not in processed_data:
+                print("flow to analyze, " + flow)
+                dataset.writelines(src_addr + ";" + dst_addr + ";" + src_port + ";" + dst_port + ";" +
+                                   flow_features(protocol, capture, src_addr, src_port, dst_addr, dst_port) + "\n")
 
             # save the data whose are processing in a checklist
-            processed_data["protocol"] = protocol
-            processed_data["src_addr"] = src_addr
-            processed_data["src_port"] = src_port
-            processed_data["dst_addr"] = dst_addr
-            processed_data["dst_port"] = dst_port
-            print("flow to analyze,  protocol:" + str(protocol) + ", ip_src:" + str(src_addr)
-                  + ", src_port: " + str(src_port) + ", dst_addr:" + str(dst_addr)
-                  + ", dstport:" + str(dst_port))
-
-            dataset.writelines(src_addr + ";" + dst_addr + ";" + src_port + ";" + dst_port + ";" +
-                               flow_features(protocol, capture, src_addr, src_port, dst_addr, dst_port)+"\n")
-
+            processed_data.append(flow)
+            processed_data.append("protocol:" + str(protocol) + ", ip_src:" + \
+                                  str(dst_addr) + ", src_port: " + str(src_port) + ", dst_addr:" + \
+                                  str(src_addr) + ", dstport:" + str(dst_port))
         except AttributeError:
             pass
         except Exception:
@@ -114,6 +128,9 @@ def flow_features(protocol, capture, src_addr, src_port, dst_addr, dst_port):
 
 
 def main():
+    """
+    The main method allows us to define the activity to do in our program
+    """
     settings()
     out = True
     while out:
@@ -138,10 +155,6 @@ def nic_treatment():
             print(e)
     print(" -------- ")
     print("")
-    interface = input("Write the name of the network interface to use:\n")
-    capture_time = input("Write the time in seconds:\n")
-    name_packet = input("Write the name of the packet file to save:\n")
-    sniffer(interface, capture_time, name_packet)
 
 
 def sniffer(interface, timeout, name_packet):
