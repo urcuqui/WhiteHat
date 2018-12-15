@@ -10,6 +10,7 @@ Packages to install:
 + netifaces
 
 The capture process uses tcpdump
+The tests were done with a linux system
 """
 
 # libraries
