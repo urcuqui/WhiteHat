@@ -85,8 +85,8 @@ def feature_generator():
             # save the data whose are processing in a checklist
             processed_data.append(flow)
             processed_data.append("protocol:" + str(protocol) + ", ip_src:" + \
-                                  str(dst_addr) + ", src_port: " + str(src_port) + ", dst_addr:" + \
-                                  str(src_addr) + ", dstport:" + str(dst_port))
+                                  str(dst_addr) + ", src_port: " + str(dst_port) + ", dst_addr:" + \
+                                  str(src_addr) + ", dstport:" + str(src_port))
         except AttributeError:
             pass
         except Exception:
@@ -118,18 +118,17 @@ def flow_features(protocol, capture, src_addr, src_port, dst_addr, dst_port):
             except Exception:
                 print("Exception during the duration feature")
                 duration_flow = 0
-            try:
-                if pkt.transport_layer == protocol and pkt.ip.src == dst_addr and pkt.ip.dst == src_addr \
-                        and pkt[protocol].dstport == dst_port and pkt[protocol].srcport == src_port:
-                    number_bytes_received_per_flow = number_bytes_received_per_flow + pkt.captured_length
-            except Exception:
-                print("Exception during the number bytes received per flow")
-                number_bytes_received_per_flow = 0
 
             total_bytes_headers_forward_direction = float(pkt['IP'].hdr_len)
             if pkt.transport_layer == 'TCP':
                 total_bytes_headers_forward_direction = total_bytes_headers_forward_direction + float(
                     pkt['TCP'].hdr_len)
+
+        if pkt.transport_layer == protocol and pkt.ip.src == dst_addr and pkt.ip.dst == src_addr \
+                and pkt[protocol].dstport == src_port and pkt[protocol].srcport == dst_port:
+
+            number_bytes_received_per_flow = number_bytes_received_per_flow + int(pkt.captured_length)
+
     return str(duration_flow) + ";" + str(number_bytes_sent_per_flow) + ";" + \
            str(number_bytes_received_per_flow) + ";" + str(total_bytes_headers_forward_direction)
 
