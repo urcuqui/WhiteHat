@@ -4,11 +4,15 @@ Date: 14 december 2018
 
 This solution is only available to capture packages from devices that have windows or linux operative systems
 Python version: 3+
+Packages to install:
++ pyshark
++ scapy
++ netifaces
 """
 
 # libraries
-import netifaces
-from scapy.all import *
+import netifaces # nic to linux
+from scapy.all import * # nic to windows
 import os
 import pyshark  # wrapper
 import subprocess
