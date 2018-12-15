@@ -8,6 +8,8 @@ Packages to install:
 + pyshark
 + scapy
 + netifaces
+
+The capture process uses tcpdump
 """
 
 # libraries
@@ -162,6 +164,13 @@ def nic_treatment():
 
 
 def sniffer(interface, timeout, name_packet):
+    """
+     This method call the sniffers depending of the operative system
+    :param interface:
+    :param timeout:
+    :param name_packet:
+    :return:
+    """
     global windows
     if windows:
         print("sniffing...")
