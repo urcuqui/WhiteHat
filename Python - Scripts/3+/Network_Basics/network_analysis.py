@@ -12,11 +12,11 @@ from scapy.all import *
 import os
 import pyshark  # wrapper
 import subprocess
-import re
 
 # global variables
 windows = False
-processed_data = {}
+processed_data =  dict()
+
 
 def settings():
     global windows
@@ -35,15 +35,13 @@ def feature_generator():
     dataset_path = input("Write the path of the dataset to save")
     dataset = open(dataset_path, "w+")
     capture = pyshark.FileCapture(pcap_path)
-    dataset.writelines('SourceIP;DestinationIP;SourcePort;DestinationPort;Flow_protocol\n')
-    dataset.writelines(str(features(capture)))
+    dataset.writelines('source_ip;destination_ip;source_port;destination_port;flow_protocol;'
+                       'duration_of_the_flow;number_of_bytes_sent_per_flow;number_of_bytes_received_per_flow;'
+                       'total_bytes_used_for_headers_in_the_forward_direction\n')
 
-
-def features(capture):
-    print ("################### Writing the data #############################")
+    print("################### Writing the data #############################")
     pkts = []
     global processed_data
-
     for pkt in capture:
         try:
             protocol = pkt.transport_layer
@@ -52,15 +50,21 @@ def features(capture):
             dst_addr = pkt.ip.dst
             dst_port = pkt[pkt.transport_layer].dstport
 
-            # save the data whose are processing in a checklist
-            processed_data["protocol"] = pkt.transport_layer
-            processed_data["src_addr"] = pkt.ip.src
-            processed_data["src_port"] = pkt[pkt.transport_layer].srcport
-            processed_data["dst_addr"] = pkt.ip.dst
-            processed_data["dst_port"] = pkt[pkt.transport_layer].dstport
+            if protocol in processed_data:
+               print("ok")
 
-            if protocol == 'TCP':
-                tcp_flow(capture, src_addr, src_port, dst_addr, dst_port)
+            # save the data whose are processing in a checklist
+            processed_data["protocol"] = protocol
+            processed_data["src_addr"] = src_addr
+            processed_data["src_port"] = src_port
+            processed_data["dst_addr"] = dst_addr
+            processed_data["dst_port"] = dst_port
+            print("flow to analyze,  protocol:" + str(protocol) + ", ip_src:" + str(src_addr)
+                  + ", src_port: " + str(src_port) + ", dst_addr:" + str(dst_addr)
+                  + ", dstport:" + str(dst_port))
+
+            dataset.writelines(src_addr + ";" + dst_addr + ";" + src_port + ";" + dst_port + ";" +
+                               flow_features(protocol, capture, src_addr, src_port, dst_addr, dst_port)+"\n")
 
         except AttributeError:
             pass
@@ -69,44 +73,47 @@ def features(capture):
     return pkts
 
 
-def tcp_flow(capture, src_addr, src_port, dst_addr, dst_port):
-
-
-    duration_flow_first = 0
-    duration_flow = 0
+def flow_features(protocol, capture, src_addr, src_port, dst_addr, dst_port):
+    duration_flow_first = 0.0
+    duration_flow = 0.0
     number_bytes_sent_per_flow = 0
     number_bytes_received_per_flow = 0
     total_bytes_headers_forward_direction = 0
     i = 0
     for pkt in capture:
-        try:
-            if pkt.transport_layer == 'TCP' and pkt.ip.src == src_addr and pkt.ip.dst == dst_addr \
-                    and pkt['TCP'].dstport == dst_port and pkt['TCP'].srcport == src_port:
 
-                number_bytes_sent_per_flow = number_bytes_sent_per_flow + pkt.captured_length
-
+        if pkt.transport_layer == protocol and pkt.ip.src == src_addr and pkt.ip.dst == dst_addr \
+                and pkt[protocol].dstport == dst_port and pkt[protocol].srcport == src_port:
+            try:
+                number_bytes_sent_per_flow = number_bytes_sent_per_flow + int(pkt.captured_length)
+            except Exception:
+                number_bytes_sent_per_flow = 0
+                print("Exception during the number of bytes sent per flow")
+            try:
                 if i == 0:
-                    duration_flow_first = pkt.frame_info.time_epoch
+                    duration_flow_first = float(pkt.frame_info.time_epoch)
                 i += 1
-
-                duration_flow = pkt.frame_info.time_epoch - duration_flow_first
-
-                if pkt.transport_layer == 'TCP' and pkt.ip.src == dst_addr and pkt.ip.dst == src_addr \
-                    and pkt['TCP'].dstport == dst_port and pkt['TCP'].srcport == src_port:
-
+                duration_flow = float(pkt.frame_info.time_epoch) - duration_flow_first
+            except Exception:
+                print("Exception during the duration feature")
+                duration_flow = 0
+            try:
+                if pkt.transport_layer == protocol and pkt.ip.src == dst_addr and pkt.ip.dst == src_addr \
+                        and pkt[protocol].dstport == dst_port and pkt[protocol].srcport == src_port:
                     number_bytes_received_per_flow = number_bytes_received_per_flow + pkt.captured_length
+            except Exception:
+                print("Exception during the number bytes received per flow")
+                number_bytes_received_per_flow = 0
 
-
-        except AttributeError:
-            pass
-        except Exception:
-            print("Error during the pcap process")
-    #return numero_puertos
-
+            total_bytes_headers_forward_direction = float(pkt['IP'].hdr_len)
+            if pkt.transport_layer == 'TCP':
+                total_bytes_headers_forward_direction = total_bytes_headers_forward_direction + float(
+                    pkt['TCP'].hdr_len)
+    return str(duration_flow) + ";" + str(number_bytes_sent_per_flow) + ";" + \
+           str(number_bytes_received_per_flow) + ";" + str(total_bytes_headers_forward_direction)
 
 
 def main():
-
     settings()
     out = True
     while out:
@@ -151,8 +158,8 @@ def sniffer(interface, timeout, name_packet):
 
 
 def pkt_callback(pkt):
-            pkt.show() # debug statement
+    pkt.show()  # debug statement
 
 
 if __name__ == "__main__":
-   main()
+    main()
