@@ -79,7 +79,7 @@ def feature_generator():
 
             if flow not in processed_data:
                 print("flow to analyze, " + flow)
-                dataset.writelines(src_addr + ";" + dst_addr + ";" + src_port + ";" + dst_port + ";" +
+                dataset.writelines(src_addr + ";" + dst_addr + ";" + src_port + ";" + dst_port + ";" + protocol + ";" +
                                    flow_features(protocol, capture, src_addr, src_port, dst_addr, dst_port) + "\n")
 
             # save the data whose are processing in a checklist
