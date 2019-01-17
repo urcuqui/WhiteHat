@@ -47,7 +47,6 @@ from static_analysis import Manifest
 
 apktool_dir = "/usr/local/bin/apktool.bat"
 """apktool_dir = "sudo apktool"""
-dir_apk = "cd .."
 package_output = "output"
 
 
@@ -62,8 +61,8 @@ def menu():
            "| _| `.__\   |________|  | _| `.__\      |___|                    ")
     out = s.join(log)
     print(out)
-    parser = optparse.OptionParser("Make dataset -d <dictionary> -a <analysis>")
-    parser.add_option("-d", dest="dname", type="string", help="APK dictionary")
+    parser = optparse.OptionParser("Make dataset -p <dictionary> -a <analysis>")
+    parser.add_option("-p", dest="dname", type="string", help="APK dictionary")
     parser.add_option("-a", dest="aname", type="string", help="type of analysis")
     (options, args) = parser.parse_args()
     if(options.dname is None) | (options.dname is None):
@@ -76,7 +75,6 @@ def menu():
         if aname == "static":
             m = Manifest()
             m.start(dname)
-
 
 
 if __name__ == "__main__":
