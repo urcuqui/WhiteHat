@@ -3,12 +3,13 @@ __author__ = 'Christian Urcuqui'
 import Permissions_Android
 import xml.etree.ElementTree as ET
 import os
+from os.path import isfile, join
 import csv
 import numpy as np
 
 
 def eraser(package):
-    os.system("find " + "Output/" + package + " -type f ! -name 'AndroidManifest.xml' -delete")
+    os.system("find " + "Output" + package + " -type f ! -name 'AndroidManifest.xml' -delete")
 
 
 def manifestBinaryVector(package):
@@ -46,8 +47,7 @@ def manifestBinaryVector(package):
                 array_output += '0,'
 
         fl.write(array_output + '\n')
-        array_output = ''
-        print("wrote..")
+        print("wrote...")
     except:
         print("error")
 
@@ -56,10 +56,17 @@ class Manifest:
 
     def start(self, dname):
         fileList = os.listdir(dname)
-        for filename in fileList:
-            os.system("apktool" + " " + "d -f "+dname+"/"+filename+" -o" + "Output/"+filename)
+        onlyfiles = []
+        for e in fileList:
+            fileList2 = os.listdir(join(dname, e))
+            result = (join(dname, e)) + "/"
+            for f in fileList2:
+                result2 = (join(result, f))
+                onlyfiles.append(result2)
+        for filename in onlyfiles:
+            os.system("apktool" + " " + "d -f "+ filename +" -o" + "Output"+filename)
             eraser(filename)
-            manifestBinaryVector("Output/"+filename)
+            manifestBinaryVector("Output"+filename)
 
 
 
@@ -70,4 +77,4 @@ class Manifest:
     # np.savetxt('binary.csv',np, delimiter=',', fmt="%s")
 
     def eraser(package):
-        os.system("find " + "Output/" + package + " -type f ! -name 'AndroidManifest.xml' -delete")
+        os.system("find " + "Output" + package + " -type f ! -name 'AndroidManifest.xml' -delete")
