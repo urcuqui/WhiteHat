@@ -1,7 +1,8 @@
 __Proyectos asignados__
 
 + Blockchain como herramienta de detección de intrusiones.
-_Grupo 1_: Sebastian Arango Vergara, Steven Ma Mei, Daniel Galvis Torres
+
+  _Grupo 1_: Sebastian Arango Vergara, Steven Ma Mei, Daniel Galvis Torres
 
 + El caballo de Troya de nuestra época: Botnets.
 + Metodología de garantizar la seguridad en routers
