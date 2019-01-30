@@ -10,6 +10,7 @@ __Proyectos asignados__
 
 + El caballo de Troya de nuestra época: Botnets.
 + Metodología de garantizar la seguridad en routers
+  _Grupo 2_: Wilmer Gómez y Juan Manuel Imbachí
 + Una mirada más modesta al cryptojacking
 + MIM: La inseguridad acechando
 + TOR: ¿sinónimo de anonimato?
