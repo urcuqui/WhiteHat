@@ -17,6 +17,10 @@ __Proyectos asignados__
 + TOR: ¿sinónimo de anonimato?
 + ¿Llega a ser WhatsApp lo suficientemente seguro como se piensa?
 + WiFi Pineapple – Pineapple in the middle.
++ Sistema para detección de defacement 
+
+  _Grupo 4_ Juan Fernando Giraldo y Juan Diego 
+
 
 ## Clase martes-jueves
 
@@ -30,7 +34,3 @@ __Proyectos asignados__
   _Grupo 3_ Juan Esteban Lopez Garcia, Jorge Morales, Alejandro Narvaez
 + ¿Llega a ser WhatsApp lo suficientemente seguro como se piensa?
 + WiFi Pineapple – Pineapple in the middle.
-
-+ Sistema para detección de defacement 
-
-  _Grupo 4_ Juan Fernando Giraldo y Juan Diego 
