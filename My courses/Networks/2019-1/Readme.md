@@ -26,6 +26,11 @@ __Proyectos asignados__
 + Una mirada más modesta al cryptojacking
 + MIM: La inseguridad acechando
 + TOR: ¿sinónimo de anonimato?
+
+ _Grupo 3_ Juan Esteban Lopez Garcia, Jorge Morales, Alejandro Narvaez
 + ¿Llega a ser WhatsApp lo suficientemente seguro como se piensa?
 + WiFi Pineapple – Pineapple in the middle.
 
++ Sistema para detección de defacement 
+
+  _Grupo 4_ Juan Fernando Giraldo y Juan Diego 
