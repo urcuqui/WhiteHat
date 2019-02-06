@@ -30,6 +30,8 @@ __Proyectos asignados__
 
 + Blockchain como herramienta de detección de intrusiones.
 + El caballo de Troya de nuestra época: Botnets.
+
+   _Grupo 7_: Brayan Bejarano, Juan Pablo Muñoz y Juan Camilo Jimenez
 + Metodología de garantizar la seguridad en routers
 + Una mirada más modesta al cryptojacking
 + MIM: La inseguridad acechando
