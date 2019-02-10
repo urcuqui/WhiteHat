@@ -40,3 +40,6 @@ __Proyectos asignados__
   _Grupo 3_ Juan Esteban Lopez Garcia, Jorge Morales, Alejandro Narvaez
 + ¿Llega a ser WhatsApp lo suficientemente seguro como se piensa?
 + WiFi Pineapple – Pineapple in the middle.
++ Análisis de malware en dispositivos con sistema operativo Android
+  
+  _Grupo 8_: Sara, Daniela Llano, David Erazo y Nicolás Biojo. 
