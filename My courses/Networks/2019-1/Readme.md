@@ -18,7 +18,6 @@ __Proyectos asignados__
 
   _Grupo 9_: Leonardo Franco, Luis Muñoz y Luis Fernando Muñoz Morales
 + MIM: La inseguridad acechando
-+ TOR: ¿sinónimo de anonimato?
 + ¿Llega a ser WhatsApp lo suficientemente seguro como se piensa?
 + WiFi Pineapple – Pineapple in the middle.
 
