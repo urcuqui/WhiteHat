@@ -16,7 +16,7 @@ __Proyectos asignados__
   _Grupo 2_: Wilmer Gómez, Juan Manuel Imbachí, _jose alejandro galvis nieto_
 + Una mirada más modesta al cryptojacking
 
-_ Grupo 9_: Leonardo Franco, Luis Muñoz y Luis Fernando Muñoz Morales
+  _Grupo 9_: Leonardo Franco, Luis Muñoz y Luis Fernando Muñoz Morales
 + MIM: La inseguridad acechando
 + TOR: ¿sinónimo de anonimato?
 + ¿Llega a ser WhatsApp lo suficientemente seguro como se piensa?
