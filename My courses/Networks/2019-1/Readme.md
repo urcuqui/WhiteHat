@@ -21,7 +21,7 @@ __Proyectos asignados__
 + ¿Llega a ser WhatsApp lo suficientemente seguro como se piensa?
 + WiFi Pineapple – Pineapple in the middle.
 
-  _Grupo 5_: Manuel Quintero y Christian Cleves
+  _Grupo 5_: Manuel Quintero, Christian Cleves y Álvaro Andrés Gómez Rey
 + Sistema para detección de defacement 
 
   _Grupo 4_ Juan Fernando Giraldo y Juan Diego 
