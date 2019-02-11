@@ -4,10 +4,10 @@
 
 __Proyectos asignados__
 
-+ Blockchain como herramienta de detección de intrusiones.
-
++ Sistema para detección de ciberamenazas
   _Grupo 1_: Sebastian Arango Vergara, Steven Ma Mei, Daniel Galvis Torres
-
+  
++ Blockchain como herramienta de detección de intrusiones.
 + El caballo de Troya de nuestra época: Botnets.
   
   _Grupo 6_: Alejandra González Vélez, Miguel Ángel Romero, Angie Valentina Córdoba
