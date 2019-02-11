@@ -39,7 +39,9 @@ __Proyectos asignados__
 + MIM: La inseguridad acechando
 + TOR: ¿sinónimo de anonimato?
 
-  _Grupo 3_ Juan Esteban Lopez Garcia, Jorge Morales, Alejandro Narvaez
+  _Grupo 3_: Juan Esteban Lopez Garcia, Jorge Morales, Alejandro Narvaez
+  
+  _Grupo 10_: Paola Fuentes (Lunes), Beycker Ágredo y Bryan Camilo Grueso
 + ¿Llega a ser WhatsApp lo suficientemente seguro como se piensa?
 + WiFi Pineapple – Pineapple in the middle.
 + Análisis de malware en dispositivos con sistema operativo Android
