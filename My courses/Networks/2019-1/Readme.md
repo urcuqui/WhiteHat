@@ -18,11 +18,10 @@ __Proyectos asignados__
 
   _Grupo 9_: Leonardo Franco, Luis Muñoz y Luis Fernando Muñoz Morales
 + MIM: La inseguridad acechando
-+ TOR: ¿sinónimo de anonimato?
 + ¿Llega a ser WhatsApp lo suficientemente seguro como se piensa?
 + WiFi Pineapple – Pineapple in the middle.
 
-  _Grupo 5_: Manuel Quintero y Christian Cleves
+  _Grupo 5_: Manuel Quintero, Christian Cleves y Álvaro Andrés Gómez Rey
 + Sistema para detección de defacement 
 
   _Grupo 4_ Juan Fernando Giraldo y Juan Diego 
@@ -39,7 +38,9 @@ __Proyectos asignados__
 + MIM: La inseguridad acechando
 + TOR: ¿sinónimo de anonimato?
 
-  _Grupo 3_ Juan Esteban Lopez Garcia, Jorge Morales, Alejandro Narvaez
+  _Grupo 3_: Juan Esteban Lopez Garcia, Jorge Morales, Alejandro Narvaez
+  
+  _Grupo 10_: Paola Fuentes (Lunes), Beycker Ágredo y Bryan Camilo Grueso
 + ¿Llega a ser WhatsApp lo suficientemente seguro como se piensa?
 + WiFi Pineapple – Pineapple in the middle.
 + Análisis de malware en dispositivos con sistema operativo Android
