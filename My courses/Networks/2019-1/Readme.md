@@ -32,7 +32,7 @@ __Proyectos asignados__
 + Blockchain como herramienta de detección de intrusiones.
 + El caballo de Troya de nuestra época: Botnets.
 
-   _Grupo 7_: Brayan Bejarano, Juan Pablo Muñoz y Juan Camilo Jimenez
+   _Grupo 7_: Brayan Bejarano, Juan Pablo Muñoz, Juan Camilo Jimenez y Nicolas Taborda
 + Metodología de garantizar la seguridad en routers
 + Una mirada más modesta al cryptojacking
 + MIM: La inseguridad acechando
@@ -43,6 +43,8 @@ __Proyectos asignados__
   _Grupo 10_: Paola Fuentes (Lunes), Beycker Ágredo y Bryan Camilo Grueso
 + ¿Llega a ser WhatsApp lo suficientemente seguro como se piensa?
 + WiFi Pineapple – Pineapple in the middle.
+
+  _Grupo 11:_ Juan David Lopez, Juan Esteban Gallo y Santiago del Campo
 + Análisis de malware en dispositivos con sistema operativo Android
   
   _Grupo 8_: Sara, Daniela Llano, David Erazo y Nicolás Biojo. 
