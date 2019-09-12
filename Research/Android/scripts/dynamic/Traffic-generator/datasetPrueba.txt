@@ -1,0 +1,10 @@
+/home/webdev/Android/ArchivosTrafico/Apps/DiamondRushOriginal.apk
+/home/webdev/Android/ArchivosTrafico/Apps/EmojiSearch.apk
+/home/webdev/Android/ArchivosTrafico/Apps/KUBOOM.apk
+/home/webdev/Android/ArchivosTrafico/Apps/MrGun.apk
+/home/webdev/Android/ArchivosTrafico/Apps/Prankfakeconversations.apk
+/home/webdev/Android/ArchivosTrafico/Apps/SFCinema.apk
+/home/webdev/Android/ArchivosTrafico/Apps/SlendrinaTheCellarFree.apk
+/home/webdev/Android/ArchivosTrafico/Apps/SUPERPADSBecomeaDJ.apk
+/home/webdev/Android/ArchivosTrafico/Apps/Uber.apk
+/home/webdev/Android/ArchivosTrafico/Apps/ZEDGERingtonesWallpapers.apk
