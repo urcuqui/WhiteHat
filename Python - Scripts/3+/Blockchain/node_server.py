@@ -149,8 +149,6 @@ class BlockChain:
         proof = self.proof_of_work(new_block)
         self.add_block(new_block, proof)
 
-        self.add_block(new_block, proof)
-
         self.unconfirmed_transactions = []
         # announce it to the network
         announce_new_block(new_block)
@@ -267,7 +265,6 @@ def consensus():
         blockchain = longest_chain
         return True
     return False
-
 
 def announce_new_block(block):
     """
