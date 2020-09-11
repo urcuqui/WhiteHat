@@ -26,13 +26,17 @@ print(data)
 print(data["data"]["data"])
 print(data["data"]["enctype"])
 
-if data["data"]["enctype"] == "BASE64":
+
+def base64_decode(data):
     import base64
-    base64_message = data["data"]["data"]
-    base64_bytes = base64_message.encode('ascii')
+    base64_bytes = data.encode('ascii')
     message_bytes = base64.b64decode(base64_bytes)
     message = message_bytes.decode('ascii')
-    print(message)
+    return message
+
+if data["data"]["enctype"] == "BASE64":
+    base64_message = data["data"]["data"]
+    print(base64_decode(base64_message))
 
 if data["data"]["enctype"] == "ROT13":
 
@@ -41,4 +45,4 @@ if data["data"]["enctype"] == "ROT13":
     print(data["data"]["data"].translate(rot13trans))
 
 
-#print(requests.post("https://www.hackthebox.eu/api/invite/generate", headers=headers).content)
+print(base64_decode(json.loads(requests.post("https://www.hackthebox.eu/api/invite/generate", headers=headers).content.decode())["data"]["code"]))
