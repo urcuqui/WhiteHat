@@ -1,4 +1,4 @@
-# WhiteHat
+# WhiteHat- An amazing project
 Information about my experiences in Ethical Hacking ... 
 
 This repository is divided by the next sections:
