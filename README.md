@@ -1,5 +1,5 @@
 # WhiteHat
-Information about my experiences in Ethical Hacking ... 
+Information about my Ethical Hacking experiences ... 
 
 This repository is divided by the next sections:
 + Python Scripts is the folder that has some code to hacks system by Python 2+ and Python 3+.
