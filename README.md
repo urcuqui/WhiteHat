@@ -1,9 +1,9 @@
 # WhiteHat
-Information about my Ethical Hacking experiences ... 
+Information about my cybersecurity experiences ... 
 
 This repository is divided by the next sections:
-+ Python Scripts is the folder that has some code to hacks system by Python 2+ and Python 3+.
-+ Courses, this folder has presentations, code, workshops about my courses, some of them are:
++ Python Scripts is the folder that has some code to hack system using Python 2+ and Python 3+.
++ Courses, this folder has presentations, code, workshops, and my courses. Some of them are:
     + Cybersecurity club
     + Networks and lab
 + Research, this folder has some open source projects, articles, and presentations about my cybersecurity research.
