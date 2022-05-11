@@ -1,4 +1,4 @@
-the information was obtained from https://docs.pytest.org/, all the credits for the original
+the information were obtained from https://docs.pytest.org/, all the credits for the original
 authors. 
 
 + "Pytest will run all files of the form test_*.py or *_test.py in the current directory and its subdirectories" https://docs.pytest.org/en/7.1.x/explanation/goodpractices.html#test-discovery
@@ -41,3 +41,8 @@ def pytest_configure(config):
         "markers", "env(name): mark test to run only on named environment"
     )
 ```
+
+Higher-scoped fixtures are executed first (such as `session`) before lower-scoped 
+fixtures (such as `function` or `class`)
+
+

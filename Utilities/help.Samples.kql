@@ -1,0 +1,127 @@
+﻿StormEvents
+| summarize count()
+
+StormEvents
+| summarize EventCount = count() by State
+| sort by EventCount
+
+StormEvents
+| summarize count(),
+    EventsWithDamageToCrops = countif(DamageCrops > 0),
+    dcount(EventType) by State
+| sort by count_
+
+StormEvents
+| where State == "TEXAS"
+| distinct EventType
+| sort by EventType asc
+
+# visualize - render columnchart, barchart, piechart, scatterchart, pivotchart
+
+StormEvents
+| summarize count(),
+    EventsWithDamageToCrops = countif(DamageCrops > 0),
+    dcount(EventType) by State
+| sort by count_
+| render barchart 
+
+# Group values using the bin() function. You'll use the bin() function, which groups values into set intervals. 
+# bin(value,roundTo)
+
+StormEvents
+| summarize count() by bin(StartTime, 7d)
+| render columnchart
+
+# sum operator
+
+StormEvents
+| extend damage = DamageProperty + DamageCrops
+| summarize sum(damage) by bin(StartTime, 7d)
+| render columnchart
+
+StormEvents
+| extend damage = DamageProperty + DamageCrops
+| summarize sum(damage) by EventType
+| render piechart
+
+StormEvents
+| extend damage = DamageProperty + DamageCrops
+| where damage > 0
+| summarize avg(damage) by EventType
+| sort by avg_damage
+
+StormEvents
+| extend damage = DamageProperty + DamageCrops
+| summarize round(avgif(damage, damage > 0)) by EventType
+| sort by avgif_damage
+
+StormEvents
+| extend damage = DamageProperty + DamageCrops
+| where damage > 0
+| summarize MaxDamage=max(damage), MinDamage=min(damage), AverageDamage=avg(damage) by EventType
+| sort by MaxDamage
+
+StormEvents
+| extend damage = DamageProperty + DamageCrops
+| where damage > 0
+| summarize percentiles(damage, 5, 20, 50, 80, 95) by EventType
+| sort by EventType asc
+
+let MinDamage = 1; // int
+let EventLocation = "ARIZONA"; // string
+StormEvents
+| where State == EventLocation
+| where DamageCrops + DamageProperty >= MinDamage
+| summarize Damage=round(avg(DamageProperty + DamageCrops)) by EventType
+| sort by Damage
+
+// Convert a tabular result to a scalar value using toscalar within a let statement
+
+StormEvents
+| summarize count() by EventType
+| top 1 by count_
+| project EventType
+
+let MostFrequentEventType = toscalar(
+    StormEvents
+    | summarize count() by EventType
+    | top 1 by count_
+    | project EventType);
+
+let MostFrequentEventType = toscalar(
+    StormEvents
+    | summarize count() by EventType
+    | top 1 by count_
+    | project EventType);
+StormEvents
+| where EventType == MostFrequentEventType
+| summarize count() by startofmonth(StartTime)
+| render columnchart
+
+let KillerStorms =
+    StormEvents
+    | where DeathsDirect + DeathsIndirect > 0
+    | project State, EventType, Deaths=DeathsDirect + DeathsIndirect;
+KillerStorms
+| summarize DistinctKillerEventTypes=dcount(EventType), TotalDeaths=sum(Deaths) by State
+| sort by TotalDeaths
+
+let Pcent = (portion: real, total: real) { round(100 * portion / total, 2) };
+StormEvents
+| extend Damage = DamageCrops + DamageProperty
+| summarize TotalEvents = count(), TotalDamagingEvents = countif(Damage > 0) by EventType
+| project EventType, TotalDamagingEvents, TotalEvents, Percentage = Pcent(TotalDamagingEvents, TotalEvents)
+| sort by EventType asc
+
+
+# What was the total week-by-week damage caused by all flood events? 
+# Show damage in the unit of Euros. In this case, damage refers to both property and crop damage. 
+# Assume the Euro is worth 1.14 USD.
+
+let Eur = 1.14;
+StormEvents
+| where EventType has "flood"
+| extend damage = (DamageCrops + DamageProperty) * Eur
+| summarize sum(damage) by bin(StartTime, 7d) 
+| render columnchart 
+
