@@ -1,0 +1,89 @@
+// "ago()" is a function that will take the current Date and Time and subtract the value provided.
+
+let timeOffset = 7d;
+let discardEventId = 4688;
+SecurityEvent
+| where TimeGenerated > ago(timeOffset*2) and TimeGenerated < ago(timeOffset)
+| where EventID != discardEventId
+| top 2
+
+// Declare dynamic tables or lists
+let suspiciousAccounts = datatable(account: string) [
+    @"\administrator", 
+    @"NT AUTHORITY\SYSTEM"
+];
+SecurityEvent | where Account in (suspiciousAccounts)
+
+let LowActivityAccounts =
+    SecurityEvent 
+    | summarize cnt = count() by Account 
+    | where cnt < 10;
+LowActivityAccounts | where Account contains "Mal"
+
+// you can use search to find data when unsure which table or column to filter.
+SecurityAlert 
+|search "err"
+
+search in (SecurityEvent,SecurityAlert,A*) "err" //The second statement will search for "err" in tables SecurityEvent, SecurityAlert, and tables starting with A.c
+
+SecurityEvent
+| where TimeGenerated > ago(1d)
+
+SecurityEvent
+| where TimeGenerated > ago(1h) and EventID == "4624"
+
+SecurityEvent
+| where TimeGenerated > ago(1h)
+| where EventID == 4624
+| where AccountType =~ "user"
+
+SecurityEvent | where EventID in (4624, 4625)
+
+// Use the extend operator
+// Create calculated columns and append the new columns to the result set.
+
+SecurityAlert
+| where TimeGenerated > ago(7d)
+| extend severityOrder = case (
+    AlertSeverity == "High", 3,
+    AlertSeverity == "Medium", 2, 
+    AlertSeverity == "Low", 1,
+    AlertSeverity == "Informational", 0,
+    -1)
+
+let timeframe = 1d;
+
+let DomainList = dynamic(["tor2web.org", "tor2web.com"]);
+
+Syslog
+| where TimeGenerated >= ago(timeframe)
+| where ProcessName contains "squid"
+| extend 
+  HTTP_Status_Code = extract("(TCP_(([A-Z]+)…-9]{3}))",8,SyslogMessage),    
+  Domain = extract("(([A-Z]+ [a-z]{4…Z]+ )([^ :\\/]*))",3,SyslogMessage)
+| where HTTP_Status_Code == "200"
+| where Domain contains "."
+| where Domain has_any (DomainList)
+
+SecurityAlert
+| where TimeGenerated > ago(7d)
+| extend severityOrder = case (
+    AlertSeverity == "High", 3,
+    AlertSeverity == "Medium", 2, 
+    AlertSeverity == "Low", 1,
+    AlertSeverity == "Informational", 0,
+    -1)
+| order by severityOrder desc
+
+// Project-away operator, Select what columns from the input to exclude from the output.
+
+SecurityAlert
+| where TimeGenerated > ago(7d)
+| extend severityOrder = case (
+    AlertSeverity == "High", 3,
+    AlertSeverity == "Medium", 2, 
+    AlertSeverity == "Low", 1,
+    AlertSeverity == "Informational", 0,
+    -1)
+| order by severityOrder
+| project-away severityOrder
