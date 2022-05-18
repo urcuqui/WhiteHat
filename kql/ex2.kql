@@ -1,0 +1,72 @@
+// Analyze query results using KQL
+
+SecurityEvent | summarize by Activity
+
+SecurityEvent
+| where EventID == "4688"
+| summarize count() by Process, Computer
+
+SecurityEvent
+| where TimeGenerated > ago(1h)
+| where EventID == 4624
+| summarize cnt=count() by AccountType, Computer
+
+// the following example will return a count of unique IP Addresses.
+SecurityEvent
+| summarize dcount(IpAddress)
+
+let timeframe = 1d;
+
+let threshold = 3;
+
+SigninLogs
+| where TimeGenerated >= ago(timeframe)
+| where ResultType == "50057"
+| where ResultDescription =~ "User account is disabled. The account has been disabled by an administrator."
+| summarize applicationCount = dcount(AppDisplayName) by UserPrincipalName, IPAddress
+| where applicationCount >= threshold
+
+// The following statement will return the most current row from the SecurityEvent table for the computer SQL12.NA.contosohotels.com. The * in the arg_max function requests all columns for the row.
+SecurityEvent 
+| where Computer == "SQL12.na.contosohotels.com"
+| summarize arg_max(TimeGenerated,*) by Computer
+
+// In this statement, the oldest SecurityEvent for the computer SQL12.NA.contosohotels.com will be returned as the result set.
+SecurityEvent 
+| where Computer == "SQL12.na.contosohotels.com"
+| summarize arg_min(TimeGenerated,*) by Computer
+
+
+// Statement 1, will have Accounts for which the last activity was a login.
+
+SecurityEvent
+| summarize arg_max(TimeGenerated, *) by Account
+| where EventID == "4624"
+
+// Statement 2, will have the most recent login for Accounts that have logged in.
+
+SecurityEvent
+| where EventID == "4624"
+| summarize arg_max(TimeGenerated, *) by Account
+
+
+// make_list() function. The function returns a dynamic (JSON) array of all the values of Expression in the group.
+SecurityEvent
+| where EventID == "4624"
+| summarize make_list(Account) by Computer
+
+// Returns a dynamic (JSON) array containing distinct values that Expression takes in the group.
+SecurityEvent
+| where EventID == "4624"
+| summarize make_set(Account) by Computer
+
+// areachart
+//barchart
+//columnchart
+//piechart
+//scatterchart
+//timechart
+
+SecurityEvent 
+| summarize count() by bin(TimeGenerated, 1d) 
+| render timechart
