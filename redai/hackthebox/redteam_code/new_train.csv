@@ -1,0 +1,13 @@
+label,message
+spam,Hello World! How are you
+spam,World! How are you doing?
+spam,"Hey, my name is Tulio. I want to get more information about the role"
+ham,Congratulations! You won a prize.
+ham,Click here to claim: https://bit.ly/3YCN7PF
+spam,https://bit.ly/3YCN7PF
+ham,You are the winner
+spam,You can unlock your account in the next 24h: https://bit.ly/3YCN7PF
+spam,my friend!
+spam,I hope this emails finds you well
+ham,"Best Regards, HackTheBox"
+ham,"Hey, HackTheBox I have a question about hacking"
