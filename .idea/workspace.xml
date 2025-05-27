@@ -2,29 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a839d1f6-c76d-4d8b-8f66-288beac88ad0" name="Default" comment="updated">
-      <change beforePath="$PROJECT_DIR$/.idea/WhiteHat.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/WhiteHat.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/My courses/Networks/code/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/My courses/Networks/code/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/My courses/Networks/code/.recommenders/caches/identified-project-coordinates.json" beforeDir="false" afterPath="$PROJECT_DIR$/My courses/Networks/code/.recommenders/caches/identified-project-coordinates.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/My courses/Networks/code/.recommenders/index/http___download_eclipse_org_recommenders_models_photon_/_b.fdt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/My courses/Networks/code/.recommenders/index/http___download_eclipse_org_recommenders_models_photon_/_b.fdx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/My courses/Networks/code/.recommenders/index/http___download_eclipse_org_recommenders_models_photon_/_b.fnm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/My courses/Networks/code/.recommenders/index/http___download_eclipse_org_recommenders_models_photon_/_b.frq" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/My courses/Networks/code/.recommenders/index/http___download_eclipse_org_recommenders_models_photon_/_b.nrm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/My courses/Networks/code/.recommenders/index/http___download_eclipse_org_recommenders_models_photon_/_b.prx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/My courses/Networks/code/.recommenders/index/http___download_eclipse_org_recommenders_models_photon_/_b.tii" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/My courses/Networks/code/.recommenders/index/http___download_eclipse_org_recommenders_models_photon_/_b.tis" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/My courses/Networks/code/.recommenders/index/http___download_eclipse_org_recommenders_models_photon_/segments.gen" beforeDir="false" afterPath="$PROJECT_DIR$/My courses/Networks/code/.recommenders/index/http___download_eclipse_org_recommenders_models_photon_/segments.gen" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/My courses/Networks/code/.recommenders/index/http___download_eclipse_org_recommenders_models_photon_/segments_c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/My courses/Networks/code/InetAddress/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/My courses/Networks/code/InetAddress/.classpath" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/My courses/Networks/code/InetAddress/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/My courses/Networks/code/InetAddress/.settings/org.eclipse.jdt.core.prefs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/My courses/Networks/code/InetAddress/src/tools/core.java" beforeDir="false" afterPath="$PROJECT_DIR$/My courses/Networks/code/InetAddress/src/tools/core.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Python - Scripts/3+/Brute Force/passwords2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Python - Scripts/3+/Brute Force/passwords2.txt" afterDir="false" />
     </list>
-    <ignored path="WhiteHat.iws" />
-    <ignored path=".idea/workspace.xml" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,76 +26,8 @@
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="1131336959">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="25" />
-          <entry key="project.open.time.0" value="2" />
-          <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.18" value="2" />
-          <entry key="project.open.time.2" value="1" />
-          <entry key="project.open.time.24" value="1" />
-          <entry key="project.open.time.25" value="2" />
-          <entry key="project.open.time.26" value="1" />
-          <entry key="project.open.time.27" value="2" />
-          <entry key="project.open.time.28" value="2" />
-          <entry key="project.open.time.30" value="1" />
-          <entry key="project.open.time.34" value="1" />
-          <entry key="project.open.time.35" value="3" />
-          <entry key="project.open.time.36" value="1" />
-          <entry key="project.open.time.4" value="3" />
-          <entry key="project.open.time.5" value="1" />
-          <entry key="project.open.time.51" value="1" />
-          <entry key="project.opened" value="25" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="html" value="8" />
-          <entry key="py" value="38" />
-          <entry key="url" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="HTML" value="8" />
-          <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="38" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="dummy" value="11" />
-          <entry key="html" value="16" />
-          <entry key="py" value="9543" />
-          <entry key="txt" value="26" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="HTML" value="16" />
-          <entry key="PLAIN_TEXT" value="37" />
-          <entry key="Python" value="9543" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
   <component name="FavoritesManager">
     <favorites_list name="WhiteHat" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Python - Scripts/3+/Network_Basics/network_analysis.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="386">
-              <caret line="122" column="44" lean-forward="true" selection-start-line="122" selection-start-column="44" selection-end-line="122" selection-end-column="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -176,6 +88,7 @@
     <option name="width" value="1152" />
     <option name="height" value="612" />
   </component>
+  <component name="ProjectId" id="2Dic9BohZfnjdfilXnsLKlf18V6" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -220,22 +133,15 @@
       <pane id="Scope" />
     </panes>
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Data-Science" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager" selected="Python.network_analysis">
     <configuration default="true" type="tests" factoryName="Attests">
@@ -368,11 +274,11 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.TCPServer (1)" />
-      <item itemvalue="Python.node_server" />
-      <item itemvalue="Python.caller" />
       <item itemvalue="Python.Scanner" />
+      <item itemvalue="Python.TCPServer (1)" />
+      <item itemvalue="Python.caller" />
       <item itemvalue="Python.network_analysis" />
+      <item itemvalue="Python.node_server" />
     </list>
     <recent_temporary>
       <list>
@@ -384,6 +290,7 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -549,6 +456,18 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
       <collection />
@@ -574,9 +493,6 @@
           <line>1</line>
         </line-breakpoint>
       </breakpoints>
-      <breakpoints-dialog>
-        <breakpoints-dialog />
-      </breakpoints-dialog>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
