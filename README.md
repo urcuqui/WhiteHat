@@ -2,18 +2,29 @@
 
 Welcome to the **WhiteHat** repository!
 
-This project is a collection of resources, guides, and tools focused on cybersecurity, ethical hacking, and information security. The materials are organized into different sections to help students, professionals, and enthusiasts expand their knowledge and practical skills in various areas of cybersecurity.
+This project is a collection of resources, guides, and research in cybersecurity and artificial intelligence. The materials are organized into different sections to help students, professionals, and enthusiasts expand their knowledge and practical skills in various areas of cybersecurity.
 
 ## Repository Structure
-
+- **AI Projects**  
+  Experiments and practical projects applying artificial intelligence and machine learning to cybersecurity problems, such as:
+    - Adversarial machine learning (e.g., data poisoning, evasion attacks)
+    - Automated malware detection
+    - Security analytics using deep learning
+- **Research**  
+  Open source projects, articles, and presentations from my cybersecurity research.
 - **Information Gathering**
   - Fingerprinting techniques and tools
   - Automated tools for reconnaissance
 - **My Courses**
+-  **Networks and lab**
   - **Club Hack1ng**
     - Workshops, tutorials, and learning experiences
     - Social engineering and web security
     - Programming with Python
+
+
+Explore each folder for hands-on scripts, educational content, and research insights. All materials are intended for ethical and educational use.
+
 
 ## Highlights
 
