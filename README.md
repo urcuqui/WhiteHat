@@ -1,15 +1,46 @@
 # WhiteHat
-Information about my cybersecurity experiences ... 
 
-This repository is divided by the next sections:
-+ Python Scripts is the folder that has some code to hack system using Python 2+ and Python 3+.
-+ Courses, this folder has presentations, code, workshops, and my courses. Some of them are:
-    + Cybersecurity club
-    + Networks and lab
-+ Research, this folder has some open source projects, articles, and presentations about my cybersecurity research.
+Welcome to the **WhiteHat** repository!
 
+This project is a collection of resources, guides, and tools focused on cybersecurity, ethical hacking, and information security. The materials are organized into different sections to help students, professionals, and enthusiasts expand their knowledge and practical skills in various areas of cybersecurity.
 
-Bibliography 
+## Repository Structure
+
+- **Information Gathering**
+  - Fingerprinting techniques and tools
+  - Automated tools for reconnaissance
+- **My Courses**
+  - **Club Hack1ng**
+    - Workshops, tutorials, and learning experiences
+    - Social engineering and web security
+    - Programming with Python
+
+## Highlights
+
+### Information Gathering
+
+Explore techniques for gathering information about a target, including manual and automated tools. Learn about documentation tools, network reconnaissance, and how to interpret data from HTTP requests and cookies. Example tools include:
+- Netcat
+- Telnet
+- Nmap
+- WhatWeb
+- Httpprint
+- BlindElephant
+
+### Club Hack1ng
+
+A space for sharing educational activities and experiences from the Hack1ng Club at Universidad Icesi. Topics include:
+- Social Engineering tools and concepts
+- Web security practices
+- Python programming for cybersecurity
+- Workshop materials and practical exercises
+
+## Disclaimer
+
+> This repository is intended for educational purposes only. All information and tools provided here are intended for responsible and ethical use.
+
+## References
+
 + Seitz, Justin. Black Hat Python: Python Programming for Hackers and Pentesters. No Starch Press, 2014.
 + Ramos, Antonio., Barberto, C. Marugan, D., & Gonzáles I. hacking con ingeniería social técnicas para hackear humanos
 + Hadnagy, C. (2014). Unmasking the social engineer: The human element of security. John Wiley & Sons.
@@ -17,6 +48,7 @@ Bibliography
 + Lutz, M. (2013). Learning Python: Powerful Object-Oriented Programming. " O'Reilly Media, Inc.".
 + O'Connor, T. J. (2012). Violent Python: a cookbook for hackers, forensic analysts, penetration testers and security engineers. Newnes.
 
+Feel free to explore the subdirectories for more detailed guides and resources!
 
 
 ```
