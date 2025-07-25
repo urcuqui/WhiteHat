@@ -25,6 +25,7 @@ from fairlearn.metrics import MetricFrame, selection_rate, demographic_parity_di
 from transformers import AutoModelForSequenceClassification, AutoTokenizer
 import torch.nn.functional as F
 import torch
+from datasets import load_dataset
 
 
 
@@ -46,7 +47,8 @@ def detect_problematic_content(text_input, model_ensemble):
     }
     """
     # YOUR IMPLEMENTATION HERE
-    risk_score = model_ensemble.predict_proba(text_input)[0]
+    processed_message = model_ensemble.named_steps["vectorizer"].transform([text_input])
+    risk_score = model_ensemble.named_steps["classifier"].predict_proba(processed_message)[0]
     risk_categories = ["toxic", "spam", "offensive"]  # Example categories
     confidence = max(risk_score)    
     explanation = "The content was analyzed using a hybrid model ensemble that combines multiple content moderation techniques."
@@ -59,6 +61,26 @@ def detect_problematic_content(text_input, model_ensemble):
     'requires_human_review': requires_human_review
     }
 
+def preprocess_message(message):
+    """"
+    Preprocess the message for content moderation.
+    Args:
+    message (str): The message to preprocess
+    Returns:
+    str: Preprocessed message
+    """
+    from nltk.stem import PorterStemmer
+    from nltk.corpus import stopwords
+
+    stop_words = set(stopwords.words("english"))    
+    stemmer = PorterStemmer()
+    message = message.lower()
+    message = re.sub(r"[^a-z\s$!]", "", message)
+    tokens = word_tokenize(message)
+    tokens = [word for word in tokens if word not in stop_words]
+    tokens = [stemmer.stem(word) for word in tokens]
+    return " ".join(tokens)
+
 def evaluate_model_fairness(predictions, ground_truth, metadata):
     """
     Assess model performance across different demographic
@@ -70,6 +92,7 @@ def evaluate_model_fairness(predictions, ground_truth, metadata):
     Returns:
     dict: Fairness metrics and bias analysis
     """
+    ds = load_dataset("civil_comments")
     return demographic_parity_difference(y_true=predictions, y_pred=ground_truth, sensitive_features=metadata)
     
 
@@ -209,13 +232,33 @@ def generate_model(df: pd.DataFrame):
     print(f"Best model F1 score: {grid_search.best_score_}")
     return best_model
 
-def generate_model_ensemble(text_input=None):
+def prediction_ensemble(text_input, model_ensemble):
+    """
+    Predict using the ensemble of models.
+    Args:
+    text_input (str): Input text to analyze
+    model_ensemble: Your hybrid model system
+    Returns:
+    dict: Prediction results from the ensemble
+    """
+    tokenizer = AutoTokenizer.from_pretrained("GroNLP/hateBERT", cache_dir="hugging/hate")
+    model_ensemble[1].eval()
+    with torch.no_grad():
+        inputs = tokenizer(text_input, return_tensors="pt", truncation=True, padding=True)
+        outputs = model(**inputs)
+        logits1 = outputs.logits
+        probs_transformer = torch.softmax(logits1, dim=1).numpy()
+        probs_sklearn  = model_ensemble[0].predict_proba(text_input)
+        # Ensemble
+        avg_probs = (probs_transformer + probs_sklearn) / 2
+        final_class = avg_probs.argmax()
+
+    return {"class": final_class, "probabilities": avg_probs}
+
+def generate_model_ensemble():
     """
     Create a hybrid model ensemble that combines multiple
-    content moderation models for improved accuracy and robustness.
-    Args:
-    text_input (str): Optional input text for immediate detection
-    using the ensemble.     
+    content moderation models for improved accuracy and robustness.    
     Returns:
     list: Ensemble of models
     """
@@ -231,19 +274,7 @@ def generate_model_ensemble(text_input=None):
         print(f"Saved model to {model_filename}")
 
     # Load additional models if needed, e.g., deep learning models, rule-based systems
-    model_two = AutoModelForSequenceClassification.from_pretrained("GroNLP/hateBERT", num_labels=2,cache_dir="hugging/hate")
-    tokenizer = AutoTokenizer.from_pretrained("GroNLP/hateBERT", cache_dir="hugging/hate")
-    model_two.eval()
-    with torch.no_grad():
-        inputs = tokenizer(text_input, return_tensors="pt", truncation=True, padding=True)
-        outputs = model(**inputs)
-        logits1 = outputs.logits
-        probs_transformer = torch.softmax(logits1, dim=1).numpy()
-        probs_sklearn  = model.predict_proba(text_input)
-        # Ensemble
-        avg_probs = (probs_transformer + probs_sklearn) / 2
-        final_class = avg_probs.argmax()
-
+    model_two = AutoModelForSequenceClassification.from_pretrained("GroNLP/hateBERT", num_labels=2,cache_dir="hugging/hate")    
     print("Model ensemble created successfully.")
     return [
         model,  # Naive Bayes model
@@ -268,6 +299,6 @@ def create_synthetic_dataset():
 
 if __name__ == '__main__':
     models = generate_model_ensemble()
-    print("Detected problematic content:", detect_problematic_content("You're the worst human being", models[0]))
+    print("Detected problematic content:", detect_problematic_content(preprocess_message("You're the worst human being"), models[0]))
     #evaluate_model_fairness(models[0].predict_proba(["You're the worst human being"]), [1], {"demographic": "example"})
 
