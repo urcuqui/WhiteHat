@@ -1,6 +1,6 @@
 from PIL import Image
 
-def ocultar_mensaje(imagen_path, mensaje, salida_path):
+def hide_message(imagen_path, mensaje, salida_path):
     img = Image.open(imagen_path)
     if img.mode != 'RGB':
         img = img.convert('RGB')
@@ -34,7 +34,7 @@ def ocultar_mensaje(imagen_path, mensaje, salida_path):
     img.save(salida_path)
     print("Mensaje oculto guardado en", salida_path)
 
-def extraer_mensaje(imagen_path):
+def extract_message(imagen_path):
     img = Image.open(imagen_path)
     pixeles = list(img.getdata())
 
@@ -59,8 +59,8 @@ def extraer_mensaje(imagen_path):
 import os
 file_to_stego = os.path.join(os.path.dirname(__file__), 'ic.png')
 file_stego = os.path.join(os.path.dirname(__file__), 'imagen_con_mensaje.png')
-ocultar_mensaje(file_to_stego, 'hack the planet', file_stego)
+hide_message(file_to_stego, 'hack the planet', file_stego)
 
 # Extraer un mensaje
-mensaje = extraer_mensaje('imagen_con_mensaje.png')
+mensaje = extract_message('imagen_con_mensaje.png')
 print("Mensaje oculto:", mensaje)
