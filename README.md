@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="logo.svg" alt="WhiteHat Logo" width="520"/>
+</p>
+
 # WhiteHat
 
 Welcome to the **WhiteHat** repository!

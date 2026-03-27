@@ -1,0 +1,175 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 180" width="520" height="180">
+  <defs>
+    <!-- Background gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0e1a;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#0d1b2a;stop-opacity:1"/>
+    </linearGradient>
+
+    <!-- Shield blue gradient -->
+    <linearGradient id="shieldBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e90ff;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#0050c8;stop-opacity:1"/>
+    </linearGradient>
+
+    <!-- Shield red gradient -->
+    <linearGradient id="shieldRed" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff4444;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#c00020;stop-opacity:1"/>
+    </linearGradient>
+
+    <!-- Glow filter blue -->
+    <filter id="glowBlue" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Glow filter red -->
+    <filter id="glowRed" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Glow white -->
+    <filter id="glowWhite" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Clip for left shield half -->
+    <clipPath id="leftHalf">
+      <rect x="0" y="0" width="90" height="180"/>
+    </clipPath>
+
+    <!-- Clip for right shield half -->
+    <clipPath id="rightHalf">
+      <rect x="90" y="0" width="90" height="180"/>
+    </clipPath>
+  </defs>
+
+  <!-- Background rounded rect -->
+  <rect width="520" height="180" rx="16" fill="url(#bgGrad)"/>
+
+  <!-- Subtle grid lines -->
+  <g opacity="0.05" stroke="#ffffff" stroke-width="0.5">
+    <line x1="0" y1="30" x2="520" y2="30"/>
+    <line x1="0" y1="60" x2="520" y2="60"/>
+    <line x1="0" y1="90" x2="520" y2="90"/>
+    <line x1="0" y1="120" x2="520" y2="120"/>
+    <line x1="0" y1="150" x2="520" y2="150"/>
+    <line x1="30" y1="0" x2="30" y2="180"/>
+    <line x1="60" y1="0" x2="60" y2="180"/>
+    <line x1="90" y1="0" x2="90" y2="180"/>
+    <line x1="120" y1="0" x2="120" y2="180"/>
+    <line x1="150" y1="0" x2="150" y2="180"/>
+    <line x1="180" y1="0" x2="180" y2="180"/>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- SHIELD centered at (90, 90) -->
+  <!-- Shield path: top arc + sides tapering to bottom point -->
+  <!-- Shield outline glow -->
+  <g transform="translate(25, 12)">
+
+    <!-- Shield base shape - blue half (left) -->
+    <path d="M65,8 C65,8 30,18 18,30 L18,90 C18,118 65,148 65,148 L65,8 Z"
+          fill="url(#shieldBlue)" opacity="0.92" filter="url(#glowBlue)"/>
+
+    <!-- Shield base shape - red half (right) -->
+    <path d="M65,8 C65,8 100,18 112,30 L112,90 C112,118 65,148 65,148 L65,8 Z"
+          fill="url(#shieldRed)" opacity="0.92" filter="url(#glowRed)"/>
+
+    <!-- Shield border -->
+    <path d="M65,8 C65,8 30,18 18,30 L18,90 C18,118 65,148 65,148 C65,148 112,118 112,90 L112,30 C100,18 65,8 65,8 Z"
+          fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.4"/>
+
+    <!-- Dividing line in shield -->
+    <line x1="65" y1="8" x2="65" y2="148" stroke="#ffffff" stroke-width="1" opacity="0.5"/>
+
+    <!-- Neural network nodes - left side (blue) -->
+    <!-- Input layer -->
+    <circle cx="35" cy="55" r="4" fill="#7ecfff" filter="url(#glowBlue)" opacity="0.9"/>
+    <circle cx="35" cy="78" r="4" fill="#7ecfff" filter="url(#glowBlue)" opacity="0.9"/>
+    <circle cx="35" cy="101" r="4" fill="#7ecfff" filter="url(#glowBlue)" opacity="0.9"/>
+
+    <!-- Hidden layer left -->
+    <circle cx="52" cy="65" r="4" fill="#b0e0ff" filter="url(#glowBlue)" opacity="0.9"/>
+    <circle cx="52" cy="90" r="4" fill="#b0e0ff" filter="url(#glowBlue)" opacity="0.9"/>
+
+    <!-- Connections left -->
+    <line x1="35" y1="55" x2="52" y2="65" stroke="#7ecfff" stroke-width="0.8" opacity="0.5"/>
+    <line x1="35" y1="55" x2="52" y2="90" stroke="#7ecfff" stroke-width="0.8" opacity="0.5"/>
+    <line x1="35" y1="78" x2="52" y2="65" stroke="#7ecfff" stroke-width="0.8" opacity="0.5"/>
+    <line x1="35" y1="78" x2="52" y2="90" stroke="#7ecfff" stroke-width="0.8" opacity="0.5"/>
+    <line x1="35" y1="101" x2="52" y2="65" stroke="#7ecfff" stroke-width="0.8" opacity="0.5"/>
+    <line x1="35" y1="101" x2="52" y2="90" stroke="#7ecfff" stroke-width="0.8" opacity="0.5"/>
+
+    <!-- Output node left to center -->
+    <line x1="52" y1="65" x2="65" y2="78" stroke="#7ecfff" stroke-width="0.8" opacity="0.5"/>
+    <line x1="52" y1="90" x2="65" y2="78" stroke="#7ecfff" stroke-width="0.8" opacity="0.5"/>
+
+    <!-- Neural network nodes - right side (red) -->
+    <!-- Center node -->
+    <circle cx="65" cy="78" r="5.5" fill="#ffffff" filter="url(#glowWhite)" opacity="0.95"/>
+
+    <!-- Hidden layer right -->
+    <circle cx="78" cy="65" r="4" fill="#ffaaaa" filter="url(#glowRed)" opacity="0.9"/>
+    <circle cx="78" cy="90" r="4" fill="#ffaaaa" filter="url(#glowRed)" opacity="0.9"/>
+
+    <!-- Output layer right -->
+    <circle cx="95" cy="55" r="4" fill="#ff6666" filter="url(#glowRed)" opacity="0.9"/>
+    <circle cx="95" cy="78" r="4" fill="#ff6666" filter="url(#glowRed)" opacity="0.9"/>
+    <circle cx="95" cy="101" r="4" fill="#ff6666" filter="url(#glowRed)" opacity="0.9"/>
+
+    <!-- Connections right -->
+    <line x1="65" y1="78" x2="78" y2="65" stroke="#ff6666" stroke-width="0.8" opacity="0.5"/>
+    <line x1="65" y1="78" x2="78" y2="90" stroke="#ff6666" stroke-width="0.8" opacity="0.5"/>
+    <line x1="78" y1="65" x2="95" y2="55" stroke="#ff6666" stroke-width="0.8" opacity="0.5"/>
+    <line x1="78" y1="65" x2="95" y2="78" stroke="#ff6666" stroke-width="0.8" opacity="0.5"/>
+    <line x1="78" y1="65" x2="95" y2="101" stroke="#ff6666" stroke-width="0.8" opacity="0.5"/>
+    <line x1="78" y1="90" x2="95" y2="55" stroke="#ff6666" stroke-width="0.8" opacity="0.5"/>
+    <line x1="78" y1="90" x2="95" y2="78" stroke="#ff6666" stroke-width="0.8" opacity="0.5"/>
+    <line x1="78" y1="90" x2="95" y2="101" stroke="#ff6666" stroke-width="0.8" opacity="0.5"/>
+
+    <!-- White hat on top of shield -->
+    <!-- Hat brim -->
+    <ellipse cx="65" cy="22" rx="28" ry="6" fill="#e8e8e8" opacity="0.95"/>
+    <!-- Hat body -->
+    <path d="M47,22 Q48,5 65,3 Q82,5 83,22 Z" fill="#f5f5f5" opacity="0.95"/>
+    <!-- Hat band -->
+    <rect x="47" y="18" width="36" height="4" rx="1" fill="#cccccc" opacity="0.7"/>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- TEXT SECTION -->
+
+  <!-- Main title: WhiteHat -->
+  <text x="200" y="72" font-family="'Courier New', Courier, monospace" font-size="42" font-weight="bold" fill="#ffffff" letter-spacing="2" filter="url(#glowWhite)">WhiteHat</text>
+
+  <!-- Subtitle divider line -->
+  <line x1="200" y1="84" x2="500" y2="84" stroke="#ffffff" stroke-width="0.5" opacity="0.25"/>
+
+  <!-- Left tag: BlueAI -->
+  <text x="200" y="108" font-family="'Courier New', Courier, monospace" font-size="16" font-weight="bold" fill="#7ecfff" filter="url(#glowBlue)" letter-spacing="1">BlueAI</text>
+
+  <!-- Separator dot -->
+  <circle cx="278" cy="103" r="2.5" fill="#ffffff" opacity="0.5"/>
+
+  <!-- Right tag: RedAI -->
+  <text x="292" y="108" font-family="'Courier New', Courier, monospace" font-size="16" font-weight="bold" fill="#ff6666" filter="url(#glowRed)" letter-spacing="1">RedAI</text>
+
+  <!-- Bottom tagline -->
+  <text x="200" y="138" font-family="'Courier New', Courier, monospace" font-size="11" fill="#888888" letter-spacing="3">AI · CYBERSECURITY · RESEARCH</text>
+
+  <!-- Decorative binary bits bottom right -->
+  <text x="340" y="162" font-family="'Courier New', Courier, monospace" font-size="9" fill="#1e90ff" opacity="0.3" letter-spacing="2">01001000 01000001 01010100</text>
+</svg>
