@@ -3,3 +3,4 @@ joblib
 nltk
 pandas
 numpy
+fastmcp
