@@ -1,0 +1,14 @@
+{
+  "image_size": [
+    256,
+    384
+  ],
+  "target_class": 2,
+  "eps_uint8": 18,
+  "auth_bbox": [
+    209,
+    318,
+    238,
+    339
+  ]
+}

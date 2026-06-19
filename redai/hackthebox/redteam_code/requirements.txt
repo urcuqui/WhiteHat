@@ -1,6 +1,41 @@
-scikit-learn
-joblib
-nltk
+# ── Core ──────────────────────────────────────────────────────────────────────
 pandas
 numpy
+scikit-learn
+joblib
+requests
+packaging
+python-dateutil
+
+# ── Adversarial ML / Red Team ─────────────────────────────────────────────────
+adversarial-robustness-toolbox
+pillow
+nltk
+
+# ── MCP / Tooling ─────────────────────────────────────────────────────────────
 fastmcp
+
+# ── Giskard LLM evaluation ────────────────────────────────────────────────────
+giskard[llm]
+nest-asyncio
+
+# ── Ollama (local LLM inference) ──────────────────────────────────────────────
+ollama
+
+# ── LangChain stack ───────────────────────────────────────────────────────────
+langchain
+langchain-core
+langchain-community
+langchain-ollama
+langchain-huggingface
+langchain-chroma
+
+# ── Vector store & embeddings ─────────────────────────────────────────────────
+chromadb
+
+# ── HuggingFace ───────────────────────────────────────────────────────────────
+transformers
+datasets
+
+# ── PyRIT (Microsoft red teaming) ─────────────────────────────────────────────
+pyrit
